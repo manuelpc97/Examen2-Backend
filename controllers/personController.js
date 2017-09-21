@@ -14,7 +14,7 @@ exports.createPerson = {
 						unique = false;
 					}
 				}
-				if (IDP[0] === undefined) {
+				if (IDP[0].idPerson === undefined) {
 					ID = 1;
 				} else {
 					ID = IDP[0].IDPerson + 1;
