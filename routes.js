@@ -38,6 +38,16 @@ exports.endpoints = [
 		config: personController.getPersonByName
 	},
 	{
+		method: 'PUT', 
+		path: '/ux/addFriend/{id}', 
+		config: personController.addFriend
+	},
+	{
+		method: 'PUT', 
+		path: '/ux/deleteFriend/{id}', 
+		config: personController.deleteFriend
+	},
+	{
 		method: 'POST', 
 		path: '/ux/login', 
 		config: authController.logIn

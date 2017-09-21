@@ -93,3 +93,29 @@ exports.getPersonByName = {
 		return reply(personByName);
 	}
 };
+
+exports.addFriend = {
+	handler: function(request, reply){
+		var addFriend = person.find({idPerson: request.params.id});
+		addFriend.update({$push: {friends: request.payload.friend}}, function(err){
+			if(err){
+				reply(err);
+			}else{
+				reply('Friend added');
+			}
+		});
+	}
+};
+
+exports.deleteFriend = {
+	handler: function(request, reply){
+		var deleteFriend = person.find({idPerson: request.params.id});
+		deleteFriend.update({$pul: {friends: request.payload.friend}}, function(err){
+			if(err){
+				reply(err);
+			}else{
+				reply('Friend added');
+			}
+		});
+	}
+};
