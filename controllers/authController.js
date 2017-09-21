@@ -14,21 +14,12 @@ exports.logIn = {
 	handler: function(request, reply){
 		user.find({username: request.payload.username}, function(err,user){
 			if(err){
-				reply(boom.notAccepted('Wrong username'));
+				return reply('error');
 			}else{
-				if(user.length > 0){
-					bcrypt.compare(request.payload.password, user[0].password, 
-						function(err, res){
-						if(err){
-							reply(boom.unauthorized('Wrong password'));
-						}
-						if(res){
-							//request.cookieAuth.set(user[0]);
-							return reply({username: user[0]. username});
-						}else{
-							reply(boom.unauthorized('Wrong password'));
-						}
-					});
+				if(request.payload.password === user[0].password){
+					return reply({username: user[0].username, idPerson: user[0].idPerson});
+				}else{
+					return reply('Contraseña erronea');
 				}
 			}
 		});
