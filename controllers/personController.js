@@ -34,9 +34,10 @@ exports.createPerson = {
 				});
 
 				console.log('new Person: ', newPerson);
-				newPerson.save();
+				
 				if (unique) {
 					console.log('se creo');
+					newPerson.save();
 					//newPerson.save();
 					reply('Person saved');
 				} else {
