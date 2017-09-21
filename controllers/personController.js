@@ -33,6 +33,7 @@ exports.createPerson = {
 				});
 
 				if (unique) {
+					console.log('se creo');
 					newPerson.save();
 					reply('Person saved');
 				} else {
