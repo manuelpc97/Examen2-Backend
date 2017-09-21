@@ -32,9 +32,10 @@ exports.createPerson = {
 					friends: request.payload.friends
 				});
 
+				newPerson.save();
 				if (unique) {
 					console.log('se creo');
-					newPerson.save();
+					//newPerson.save();
 					reply('Person saved');
 				} else {
 					reply('Not unique');
