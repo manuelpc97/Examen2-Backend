@@ -110,7 +110,7 @@ exports.addFriend = {
 exports.deleteFriend = {
 	handler: function(request, reply){
 		var deleteFriend = person.find({idPerson: request.params.id});
-		deleteFriend.update({$pul: {friends: request.payload.friend}}, function(err){
+		deleteFriend.update({$pull: {friends: request.payload.friend}}, function(err){
 			if(err){
 				reply(err);
 			}else{
