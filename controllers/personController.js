@@ -3,7 +3,7 @@ var boom = require('boom');
 var bcrypt = require('bcrypt');
 
 exports.createPerson = {
-	handler: function(request, response){
+	handler: function(request, reply){
 			console.log('Aqui');
 			bcrypt.hash(request.payload.password, 10, function (err, hash) {
 			if (err)

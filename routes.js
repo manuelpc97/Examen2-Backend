@@ -32,7 +32,7 @@ exports.endpoints = [
 	},
 	{
 		method: 'GET', 
-		path: '/ux/PersonByName', 
+		path: '/ux/PersonByName/{name}', 
 		config: personController.getPersonByName
 	}
 ]
