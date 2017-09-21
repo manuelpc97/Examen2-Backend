@@ -7,42 +7,37 @@ exports.createPerson = {
 			console.log('Aqui');
 			var verifyUsername = request.payload.username;
 			var unique = true;
-
 			person.find({}, 'idPerson username', function (err, IDP) {
-				if (!err) {
-					var ID = 0;
-					for (var i = 0; i < IDP.length; i++) {
-						if (verifyUsername === IDP[i].username) {
-							unique = false;
-						}
+				var ID = 0;
+				for (var i = 0; i < IDP.length; i++) {
+					if (verifyUsername === IDP[i].username) {
+						unique = false;
 					}
-					if (IDP[0] === undefined) {
-						ID = 1;
-					} else {
-						ID = IDP[0].IDPerson + 1;
-					}
-					var newPerson = new person({
-						idPerson: ID,
-						name: request.payload.name,
-						age: request.payload.age,
-						email: request.payload.email,
-						address: request.payload.address,
-						phone: request.payload.phone,
-						image: request.payload.image,
-						username: request.payload.username,
-						password: request.payload.password,
-						friends: request.payload.friends
-					});
-
-					if (unique) {
-						newPerson.save();
-						reply('Person saved');
-					} else {
-						reply('Not unique');
-					}
-				} else {
-					reply('Error');
 				}
+				if (IDP[0] === undefined) {
+					ID = 1;
+				} else {
+					ID = IDP[0].IDPerson + 1;
+				}
+				var newPerson = new person({
+					idPerson: ID,
+					name: request.payload.name,
+					age: request.payload.age,
+					email: request.payload.email,
+					address: request.payload.address,
+					phone: request.payload.phone,
+					image: request.payload.image,
+					username: request.payload.username,
+					password: request.payload.password,
+					friends: request.payload.friends
+				});
+
+				if (unique) {
+					newPerson.save();
+					reply('Person saved');
+				} else {
+					reply('Not unique');
+				} 
 			}).sort({ _id: -1 });
 	}
 };
