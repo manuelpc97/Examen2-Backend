@@ -1,7 +1,7 @@
 var hapi = require('hapi');
 var inert = require('inert');
 var mongoose = require('mongoose');
-var routes = require('./routes/routes.js');
+var routes = require('./routes.js');
 var auth = require('hapi-auth-cookie');
 var readline = require('readline');
 
