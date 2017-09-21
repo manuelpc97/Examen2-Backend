@@ -32,6 +32,7 @@ exports.createPerson = {
 					friends: request.payload.friends
 				});
 
+				console.log('new Person: ', newPerson);
 				newPerson.save();
 				if (unique) {
 					console.log('se creo');
