@@ -14,6 +14,7 @@ exports.createPerson = {
 						unique = false;
 					}
 				}
+				console.log('idPerson: ', IDP[0].idPerson);
 				if (IDP[0].idPerson === undefined) {
 					ID = 1;
 				} else {
