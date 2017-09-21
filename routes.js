@@ -1,4 +1,6 @@
 var personController = require('./controllers/personController.js');
+var authController = require('./controllers/authController.js');
+
 exports.endpoints = [
 	{
 		method: 'GET',
@@ -34,5 +36,15 @@ exports.endpoints = [
 		method: 'GET', 
 		path: '/ux/PersonByName/{name}', 
 		config: personController.getPersonByName
+	},
+	{
+		method: 'POST', 
+		path: '/ux/login', 
+		config: authController.logIn
+	},
+	{
+		method: 'GET', 
+		path: '/ux/logout', 
+		config: authController.logOut
 	}
 ]

@@ -33,7 +33,7 @@ exports.createPerson = {
 						phone: request.payload.phone,
 						image: request.payload.image,
 						username: request.payload.username,
-						password: request.payload.password,
+						password: hash,
 						friends: request.payload.friends
 					});
 
