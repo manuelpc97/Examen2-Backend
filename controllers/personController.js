@@ -5,9 +5,6 @@ var bcrypt = require('bcrypt');
 exports.createPerson = {
 	handler: function(request, reply){
 			console.log('Aqui');
-			bcrypt.hash(request.payload.password, 10, function (err, hash) {
-			if (err)
-				return reply(boom.notAcceptable('Error encrypting password'));
 			var verifyUsername = request.payload.username;
 			var unique = true;
 
@@ -33,7 +30,7 @@ exports.createPerson = {
 						phone: request.payload.phone,
 						image: request.payload.image,
 						username: request.payload.username,
-						password: hash,
+						password: request.payload.password,
 						friends: request.payload.friends
 					});
 
@@ -47,7 +44,6 @@ exports.createPerson = {
 					reply('Error');
 				}
 			}).sort({ _id: -1 });
-		});
 	}
 };
 
