@@ -15,7 +15,7 @@ exports.createPerson = {
 					}
 				}
 				console.log('idPerson: ', IDP[0].idPerson);
-				if (IDP[0].idPerson === undefined) {
+				if (IDP[0] === undefined) {
 					ID = 1;
 				} else {
 					ID = IDP[0].idPerson + 1;
@@ -52,9 +52,9 @@ exports.updatePerson = {
 		var toBeUpdated = person.find({idPerson: request.params.id});
 		toBeUpdated.update({$set: request.payload}, function(err){
 			if(err){
-				reply(err);
+				return reply(err);
 			}else{
-				reply('Person updated');
+				return reply('Person updated');
 			}
 		});
 	}
@@ -65,9 +65,9 @@ exports.deletePerson = {
 		var toBeDeleted = person.find({idPerson: request.params.id});
 		toBeDeleted.remove(function(err){
 			if(err){
-				reply(err);
+				return reply(err);
 			}else{
-				reply('Person deleted');
+				return reply('Person deleted');
 			}
 		});
 	}

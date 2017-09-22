@@ -1,5 +1,6 @@
 var personController = require('./controllers/personController.js');
 var authController = require('./controllers/authController.js');
+var elementController = require('./controllers/elementController.js')
 
 exports.endpoints = [
 	{
@@ -56,5 +57,26 @@ exports.endpoints = [
 		method: 'GET', 
 		path: '/ux/logout', 
 		config: authController.logOut
+	},
+	//************************************************************************************
+	{
+		method: 'POST',
+		path: '/ux/Element', 
+		config: elementController.createElement
+	},
+	{
+		method: 'PUT',
+		path: '/ux/Element/{id}', 
+		config: elementController.updateElement
+	},
+	{
+		method: 'GET',
+		path: '/ux/Elements', 
+		config: elementController.getElements
+	},
+	{
+		method: 'DELETE',
+		path: '/ux/Element/{id}', 
+		config: elementController.deleteElement
 	}
 ]
