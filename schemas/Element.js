@@ -6,7 +6,7 @@ var elementSchema = new mongoose.Schema({
 	nombre: String,
 	peso: Number, 
 	tipo: String,
-	detonado: Boolean,
+	detonada: Boolean,
 	lugar: String,
 	energia: Number
 });
