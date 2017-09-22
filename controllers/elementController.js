@@ -11,10 +11,12 @@ exports.createElement = {
 				}
 				var newElement = new element({
 					idElement: ID,
-					name: request.payload.name,
-					image: request.payload.image,
-					description: request.payload.description,
-					list: request.payload.list
+					nombre: request.payload.nombre,
+					peso: request.payload.peso,
+					tipo: request.payload.tipo,
+					detonada: request.payload.detonada,
+					lugar: request.payload.lugar,
+					energia: request.payload.energia
 				});
 				newElement.save();
 				return reply('Element added');

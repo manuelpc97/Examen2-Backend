@@ -3,9 +3,11 @@ var uniqueValidator = require('mongoose-unique-validator');
 
 var elementSchema = new mongoose.Schema({
 	idElement: Number,
-	name: String,
-	description: String, 
-	image: String,
-	list: [Number]
+	nombre: String,
+	peso: Number, 
+	tipo: String,
+	detonado: Boolean,
+	lugar: String,
+	energia: Number
 });
 module.exports = mongoose.model('Element', elementSchema);
